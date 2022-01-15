@@ -3,27 +3,29 @@ autocmd VimEnter * NERDTree | wincmd p
 set number
 set mouse=a
 set cursorline
+set hlsearch
 
 call plug#begin()
-    Plug 'joshdick/onedark.vim'
-    Plug 'vim-airline/vim-airline'
-
-    Plug 'github/copilot.vim'
-
-    Plug 'sheerun/vim-polyglot' " language pack
-    Plug 'dense-analysis/ale' "lint engine
+    Plug 'joshdick/onedark.vim' " nvim theme
+    
+    Plug 'vim-airline/vim-airline' " buffer and status bar
+    Plug 'preservim/nerdtree' " file tree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
+    Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
     Plug 'tpope/vim-fugitive' " git integration
-    Plug 'ap/vim-css-color' " css color support
-    Plug 'cohama/lexima.vim' " auto close pair characters
-    Plug 'tpope/vim-surround' " change pair characters
-    Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
+    Plug 'ryanoasis/vim-devicons' " icons for file types
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf.vim' " file finder
+    Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
 
-    Plug 'preservim/nerdtree'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
+    Plug 'github/copilot.vim' " github copilot
+    Plug 'sheerun/vim-polyglot' " language pack
+    Plug 'mattn/emmet-vim' " emmet support
+    Plug 'dense-analysis/ale' "lint engine
+    Plug 'ap/vim-css-color' " css color support
+    Plug 'jiangmiao/auto-pairs' " auto-pairing
+    Plug 'tpope/vim-surround' " change pair characters
+    Plug 'itchyny/vim-cursorword' " highlight current word
 call plug#end()
 
 syntax on
