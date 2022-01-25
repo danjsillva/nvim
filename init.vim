@@ -10,10 +10,10 @@ set cursorline
 set hlsearch
 set ignorecase
 set showmatch
-set termguicolors
 
 call plug#begin()
     Plug 'sainnhe/sonokai' " nvim theme
+    Plug 'joshdick/onedark.vim' " nvim theme
     
     Plug 'vim-airline/vim-airline' " buffer and status bar
     Plug 'majutsushi/tagbar' " tagbar
@@ -43,7 +43,6 @@ call plug#end()
 
 colorscheme sonokai
 syntax on
-highlight CursorLine guibg=#303030
 
 nnoremap <C-p> :GFiles<CR>
 let g:fzf_action = {
