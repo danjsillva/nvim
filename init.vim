@@ -48,6 +48,7 @@ set lazyredraw                        " no unneeded redraws
 set nobackup                          " don't save backups
 set noswapfile                        " no swapfiles
 set noerrorbells                      " no error bells please
+set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
 
 " FZF
 nnoremap <C-p> :GFiles<CR>
