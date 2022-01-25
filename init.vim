@@ -3,14 +3,6 @@
 " Close window if NERDTree is the last one
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 
-set number
-set relativenumber
-set mouse=a
-set cursorline
-set hlsearch
-set ignorecase
-set showmatch
-
 call plug#begin()
     Plug 'sainnhe/sonokai' " nvim theme
     Plug 'joshdick/onedark.vim' " nvim theme
@@ -44,13 +36,24 @@ call plug#end()
 colorscheme sonokai
 syntax on
 
-nnoremap <C-p> :GFiles<CR>
-let g:fzf_action = {
-\   'ctrl-s': 'split',
-\   'ctrl-v': 'vsplit'
-\}
-noremap <silent> <C-b> :NERDTreeToggle<CR>
+set number
+set relativenumber
+set mouse=a
+set cursorline
+set hlsearch
+set ignorecase
+set showmatch
+set clipboard=unnamed                 " use native clipboard
+set lazyredraw                        " no unneeded redraws
+set nobackup                          " don't save backups
+set noswapfile                        " no swapfiles
+set noerrorbells                      " no error bells please
 
+" FZF
+nnoremap <C-p> :GFiles<CR>
+let g:fzf_action = {'ctrl-s': 'split', 'ctrl-v': 'vsplit'}
+
+" Ale
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_linters_explicit = 1
@@ -72,6 +75,10 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#branch#enabled = 1
 
 " NERDTree
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap nt :NERDTreeToggle<cr>
+nnoremap nf :NERDTreeFind<cr>
+
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
 let g:NERDTreeHighlightFolders = 1
