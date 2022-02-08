@@ -114,6 +114,9 @@ let g:blamer_prefix = '                '
 " FZF
 let g:fzf_action = { 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 
+" CtrlSF
+let g:ctrlsf_position = 'right'
+
 " Prettier
 nnoremap <leader>pp :Prettier<cr>
 
