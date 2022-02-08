@@ -87,6 +87,7 @@ nnoremap <leader>gh :Gclog<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gf :Gdiff<cr>
 nnoremap <leader>gd :Gvdiffsplit<cr>
+nnoremap <leader>gp :G pull<cr>
 
 nnoremap <leader>la :CocAction<cr>
 nnoremap <leader>ld :CocDiagnostics<cr>
