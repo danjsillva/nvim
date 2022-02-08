@@ -1,3 +1,20 @@
 {
- "diagnostic.checkCurrentLine": true
+  "codeLens.enable": false,
+  "vetur.ignoreProjectWarning": true,
+  "diagnostic.enableHighlightLineNumber": true,
+  "diagnostic.errorSign": "➤➤",
+  "diagnostic.warningSign": "➤➤",
+  "diagnostic.infoSign": "➤➤",
+  "diagnostic.hintSign": "➤➤",
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "javascript",
+    "typescriptreact",
+    "javascriptreact",
+    "vue",
+    "json",
+    "html",
+    "css"
+  ]
 }

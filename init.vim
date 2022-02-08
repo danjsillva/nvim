@@ -1,6 +1,5 @@
 call plug#begin()
     Plug 'morhetz/gruvbox' " nvim theme
- 
     Plug 'rmagatti/auto-session' " auto-session
     Plug 'vim-airline/vim-airline' " buffer and status bar
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
@@ -9,14 +8,12 @@ call plug#begin()
     Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
     Plug 'tpope/vim-fugitive' " git integration
     Plug 'ryanoasis/vim-devicons' " icons for file types
-    Plug 'nvim-lua/plenary.nvim' " lua support
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim' " file finder
     Plug 'dyng/ctrlsf.vim'
     Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
     Plug 'airblade/vim-gitgutter' " git gutter
     Plug 'APZelos/blamer.nvim' " git lens
-
     Plug 'editorconfig/editorconfig-vim' " editorconfig
     Plug 'github/copilot.vim' " github copilot
     Plug 'vim-test/vim-test' " test runner
@@ -59,27 +56,28 @@ set noswapfile                        " no swapfiles
 set noerrorbells                      " no error bells please
 set visualbell
 set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
-set scrolloff=4                       " minimum scroll offset
-set signcolumn=yes                    " don't split windows
+set scrolloff=8                       " minimum scroll offset
+set signcolumn=yes:2                  " don't split windows
 set autoread                          " auto read files
 set updatetime=100                    " update time
 set sessionoptions+=winpos,terminal   " auto-session
 
 filetype plugin off
 
-" Copy file and directory names to clipboard
-nnoremap <silent> yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
-nnoremap <silent> yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
+nnoremap <CR> :noh<CR><CR>
 
-nnoremap <silent> gt :bn<CR> " Go to next buffer
-nnoremap <silent> gr :bp<CR> " Go to previous buffer
+nnoremap <silent>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
+nnoremap <silent>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
+
+nnoremap <silent>qq :bn<CR>
+nnoremap <silent>qw <C-w>w
+nnoremap <silent>qs :vsplit<cr>
+
+nnoremap <leader>tt :terminal<CR>
 
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :bd!<cr>
 nnoremap <leader>wq :w\|bd<cr>
-
-nnoremap <leader>ss :vsplit<cr>
-nnoremap <leader>sh :split<cr>
 
 nnoremap <leader>ff :CtrlSF 
 nnoremap <leader>fr :CtrlSFToggle<cr>
@@ -95,6 +93,11 @@ nnoremap <leader>ld :CocDiagnostics<cr>
 nnoremap <leader>lt :CocOutline<cr>
 nnoremap <leader>ls :CocSearch
 
+nnoremap <silent> <C-p> :GFiles<CR>
+
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap nf :NERDTreeFind<cr>
+
 map <F12> :PlugInstall<cr>
 map <F11> :PlugUpdate<cr>
 map <F10> :PlugClean<cr>
@@ -108,7 +111,6 @@ let g:blamer_relative_time = 1
 let g:blamer_prefix = '                '
 
 " FZF
-nnoremap <C-p> :GFiles<CR>
 let g:fzf_action = { 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 
 " Prettier
@@ -134,10 +136,6 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#branch#enabled = 1
 
 " NERDTree
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-nnoremap nb :NERDTreeToggle<cr>
-nnoremap nf :NERDTreeFind<cr>
-
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
 let g:NERDTreeHighlightFolders = 1
