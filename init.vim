@@ -3,7 +3,6 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'rmagatti/auto-session' " auto-session
     Plug 'vim-airline/vim-airline' " buffer and status bar
-"    Plug 'jayli/vim-easycomplete' " completion engine
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
     Plug 'preservim/nerdtree' " file tree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
@@ -132,30 +131,6 @@ let g:fzf_action = { 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 
 " CtrlSF
 let g:ctrlsf_position = 'right'
-
-" EasyComplete
-"let g:easycomplete_menuflag_buf = ""
-"let g:easycomplete_kindflag_buf = "⚯"
-"let g:easycomplete_menuflag_snip = ""
-"let g:easycomplete_kindflag_snip = "ട"
-"let g:easycomplete_kindflag_dict = "≡"
-"let g:easycomplete_menuflag_dict = ""
-"let g:easycomplete_kindflag_tabnine = ""
-"let g:easycomplete_lsp_type_font = {
-"\ 'text' : '⚯',         'method':'m',    'function': 'f',
-"\ 'constructor' : '≡',  'field': 'f',    'default':'d',
-"\ 'variable' : '𝘤',     'class':'c',     'interface': 'i',
-"\ 'module' : 'm',       'property': 'p', 'unit':'u',
-"\ 'value' : '𝘧',        'enum': 'e',     'keyword': 'k',
-"\ 'snippet': '𝘧',       'color': 'c',    'file':'f',
-"\ 'reference': 'r',     'folder': 'f',   'enummember': 'e',
-"\ 'constant':'c',       'struct': 's',   'event':'e',
-"\ 'typeparameter': 't', 'var': 'v',      'const': 'c',
-"\ 'operator':'o',
-"\ 't':'𝘵',   'f':'𝘧',   'c':'𝘤',   'm':'𝘮',   'u':'𝘶',   'e':'𝘦',
-"\ 's':'𝘴',   'v':'𝘷',   'i':'𝘪',   'p':'𝘱',   'k':'𝘬',   'r':'𝘳',
-"\ 'o':"𝘰",   'l':"𝘭",   'a':"𝘢",   'd':'𝘥',
-"\ }
 
 " CoC
 let g:coc_global_extensions = [
