@@ -1,8 +1,10 @@
 call plug#begin()
     Plug 'morhetz/gruvbox' " nvim theme
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'rmagatti/auto-session' " auto-session
     Plug 'vim-airline/vim-airline' " buffer and status bar
-    Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
+"    Plug 'jayli/vim-easycomplete' " completion engine
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
     Plug 'preservim/nerdtree' " file tree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
     Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
@@ -18,9 +20,11 @@ call plug#begin()
     Plug 'github/copilot.vim' " github copilot
     Plug 'vim-test/vim-test' " test runner
     Plug 'sheerun/vim-polyglot' " language pack
+    Plug 'posva/vim-vue' " vue language pack
     Plug 'mattn/emmet-vim' " emmet support
     Plug 'prettier/vim-prettier' " prettier support
     Plug 'ap/vim-css-color' " css color support
+    Plug 'tpope/vim-commentary' " comment support
     Plug 'jiangmiao/auto-pairs' " auto-pairing
     Plug 'tpope/vim-surround' " change pair characters
     Plug 'itchyny/vim-cursorword' " highlight current word
@@ -69,11 +73,15 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap <silent>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
 nnoremap <silent>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
 
-nnoremap <silent>qq :bn<CR>
-nnoremap <silent>qw <C-w>w
-nnoremap <silent>qs :vsplit<cr>
+nnoremap <silent>wa <C-w>h
+nnoremap <silent>ws <C-w>j
+nnoremap <silent>ww <C-w>k
+nnoremap <silent>wd <C-w>l
+nnoremap <silent>wq :vsplit<CR><C-w>R
+nnoremap <silent>we :vsplit<CR>
 
-nnoremap <leader>tt :terminal<CR>
+nnoremap <silent>qw :bn<CR>
+nnoremap <silent>qq :bp<CR>
 
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :bd!<cr>
@@ -89,6 +97,9 @@ nnoremap <leader>gf :Gdiff<cr>
 nnoremap <leader>gd :Gvdiffsplit<cr>
 nnoremap <leader>gp :G pull<cr>
 
+nnoremap <leader>dd :call CocAction('jumpDefinition', 'drop')<CR>
+nnoremap <leader>ds :call CocAction('jumpDefinition', 'vsplit')<CR>
+
 nnoremap <leader>la :CocAction<cr>
 nnoremap <leader>ld :CocDiagnostics<cr>
 nnoremap <leader>lt :CocOutline<cr>
@@ -98,6 +109,11 @@ nnoremap <silent> <C-p> :GFiles<CR>
 
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 nnoremap nf :NERDTreeFind<cr>
+
+nnoremap <leader>pp :Prettier<cr>
+
+"nnoremap <C-t> :bel vert term<CR><CR>i
+"tnoremap <C-t> <CR>exit<CR>
 
 map <F12> :PlugInstall<cr>
 map <F11> :PlugUpdate<cr>
@@ -117,8 +133,29 @@ let g:fzf_action = { 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 " CtrlSF
 let g:ctrlsf_position = 'right'
 
-" Prettier
-nnoremap <leader>pp :Prettier<cr>
+" EasyComplete
+"let g:easycomplete_menuflag_buf = ""
+"let g:easycomplete_kindflag_buf = "⚯"
+"let g:easycomplete_menuflag_snip = ""
+"let g:easycomplete_kindflag_snip = "ട"
+"let g:easycomplete_kindflag_dict = "≡"
+"let g:easycomplete_menuflag_dict = ""
+"let g:easycomplete_kindflag_tabnine = ""
+"let g:easycomplete_lsp_type_font = {
+"\ 'text' : '⚯',         'method':'m',    'function': 'f',
+"\ 'constructor' : '≡',  'field': 'f',    'default':'d',
+"\ 'variable' : '𝘤',     'class':'c',     'interface': 'i',
+"\ 'module' : 'm',       'property': 'p', 'unit':'u',
+"\ 'value' : '𝘧',        'enum': 'e',     'keyword': 'k',
+"\ 'snippet': '𝘧',       'color': 'c',    'file':'f',
+"\ 'reference': 'r',     'folder': 'f',   'enummember': 'e',
+"\ 'constant':'c',       'struct': 's',   'event':'e',
+"\ 'typeparameter': 't', 'var': 'v',      'const': 'c',
+"\ 'operator':'o',
+"\ 't':'𝘵',   'f':'𝘧',   'c':'𝘤',   'm':'𝘮',   'u':'𝘶',   'e':'𝘦',
+"\ 's':'𝘴',   'v':'𝘷',   'i':'𝘪',   'p':'𝘱',   'k':'𝘬',   'r':'𝘳',
+"\ 'o':"𝘰",   'l':"𝘭",   'a':"𝘢",   'd':'𝘥',
+"\ }
 
 " CoC
 let g:coc_global_extensions = [
