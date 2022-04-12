@@ -26,6 +26,7 @@ call plug#begin()
     Plug 'tpope/vim-commentary' " comment support
     Plug 'jiangmiao/auto-pairs' " auto-pairing
     Plug 'tpope/vim-surround' " change pair characters
+    Plug 'AndrewRadev/tagalong.vim' " tag support
     Plug 'itchyny/vim-cursorword' " highlight current word
     Plug 'terryma/vim-multiple-cursors' " multiple cursors
     Plug 'MattesGroeger/vim-bookmarks' " bookmarks
@@ -67,7 +68,10 @@ set sessionoptions+=winpos,terminal   " auto-session
 
 filetype plugin off
 
-nnoremap <CR> :noh<CR><CR>
+let mapleader = " "
+
+nnoremap <Esc> :noh<CR><CR>
+nnoremap <ESC> :nohlsearch<CR>
 
 nnoremap <silent>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
 nnoremap <silent>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
@@ -76,7 +80,7 @@ nnoremap <silent>wa <C-w>h
 nnoremap <silent>ws <C-w>j
 nnoremap <silent>ww <C-w>k
 nnoremap <silent>wd <C-w>l
-nnoremap <silent>wq :vsplit<CR><C-w>R
+nnoremap <silent>wq <C-w>c
 nnoremap <silent>we :vsplit<CR>
 
 nnoremap <silent>qw :bn<CR>
@@ -111,8 +115,8 @@ nnoremap nf :NERDTreeFind<cr>
 
 nnoremap <leader>pp :Prettier<cr>
 
-"nnoremap <C-t> :bel vert term<CR><CR>i
-"tnoremap <C-t> <CR>exit<CR>
+nnoremap <C-t> :bel vert term<CR><CR>i
+tnoremap <C-t> <CR>exit<CR>
 
 map <F12> :PlugInstall<cr>
 map <F11> :PlugUpdate<cr>
