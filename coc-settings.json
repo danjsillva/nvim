@@ -13,8 +13,10 @@
     "typescriptreact",
     "javascriptreact",
     "vue",
+    "svelte",
     "json",
     "html",
     "css"
-  ]
+  ],
+  "svelte.enable-ts-plugin": true
 }

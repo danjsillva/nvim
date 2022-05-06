@@ -141,6 +141,7 @@ let g:coc_global_extensions = [
 \   'coc-tsserver',
 \   'coc-eslint',
 \   'coc-vetur',
+\   'coc-svelte',
 \   'coc-html',
 \   'coc-json',
 \   'coc-css',
