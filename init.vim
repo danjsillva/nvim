@@ -73,18 +73,20 @@ let mapleader = " "
 nnoremap <Esc> :noh<CR><CR>
 nnoremap <ESC> :nohlsearch<CR>
 
-nnoremap <silent>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
-nnoremap <silent>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
+nnoremap <silent><tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap <silent><s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-nnoremap <silent>wa <C-w>h
-nnoremap <silent>ws <C-w>j
-nnoremap <silent>ww <C-w>k
-nnoremap <silent>wd <C-w>l
-nnoremap <silent>wq <C-w>c
-nnoremap <silent>we :vsplit<CR>
+nnoremap <silent> <C-p> :GFiles<CR>
 
-nnoremap <silent>qw :bn<CR>
-nnoremap <silent>qq :bp<CR>
+nnoremap <leader>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
+nnoremap <leader>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
+
+nnoremap <leader>wa <C-w>h
+nnoremap <leader>ws <C-w>j
+nnoremap <leader>ww <C-w>k
+nnoremap <leader>wd <C-w>l
+nnoremap <leader>wq <C-w>c
+nnoremap <leader>we :vsplit<CR>
 
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :bd!<cr>
@@ -108,10 +110,8 @@ nnoremap <leader>ld :CocDiagnostics<cr>
 nnoremap <leader>lt :CocOutline<cr>
 nnoremap <leader>ls :CocSearch
 
-nnoremap <silent> <C-p> :GFiles<CR>
-
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-nnoremap nf :NERDTreeFind<cr>
+nnoremap <leader>bb :NERDTreeToggle<CR>
+nnoremap <leader>bf :NERDTreeFind<cr>
 
 nnoremap <leader>pp :Prettier<cr>
 
