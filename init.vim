@@ -1,4 +1,5 @@
 call plug#begin()
+    Plug 'ThePrimeagen/vim-be-good'
     Plug 'morhetz/gruvbox' " nvim theme
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'rmagatti/auto-session' " auto-session
@@ -88,9 +89,8 @@ nnoremap <leader>wd <C-w>l
 nnoremap <leader>wq <C-w>c
 nnoremap <leader>we :vsplit<CR>
 
-nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :bd!<cr>
-nnoremap <leader>wq :w\|bd<cr>
+nnoremap <leader>qw :w\|bd<cr>
 
 nnoremap <leader>ff :CtrlSF 
 nnoremap <leader>fr :CtrlSFToggle<cr>
