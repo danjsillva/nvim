@@ -101,6 +101,7 @@ nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gf :Gdiff<cr>
 nnoremap <leader>gd :Gvdiffsplit<cr>
 nnoremap <leader>gp :G pull<cr>
+nnoremap <leader>gP :G push<cr>
 
 nnoremap <leader>dd :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <leader>ds :call CocAction('jumpDefinition', 'vsplit')<CR>
