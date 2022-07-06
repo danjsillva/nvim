@@ -5,6 +5,7 @@ call plug#begin()
     Plug 'rmagatti/auto-session' " auto-session
     Plug 'vim-airline/vim-airline' " buffer and status bar
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
+    Plug 'preservim/nerdcommenter' " commenter
     Plug 'preservim/nerdtree' " file tree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
     Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
@@ -24,7 +25,6 @@ call plug#begin()
     Plug 'mattn/emmet-vim' " emmet support
     Plug 'prettier/vim-prettier' " prettier support
     Plug 'ap/vim-css-color' " css color support
-    Plug 'tpope/vim-commentary' " comment support
     Plug 'jiangmiao/auto-pairs' " auto-pairing
     Plug 'tpope/vim-surround' " change pair characters
     Plug 'AndrewRadev/tagalong.vim' " tag support
@@ -67,7 +67,7 @@ set autoread                          " auto read files
 set updatetime=100                    " update time
 set sessionoptions+=winpos,terminal   " auto-session
 
-filetype plugin off
+filetype plugin on
 
 let mapleader = " "
 
@@ -77,7 +77,7 @@ nnoremap <ESC> :nohlsearch<CR>
 nnoremap <silent><tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent><s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent><C-p> :GFiles<CR>
 
 nnoremap <leader>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
 nnoremap <leader>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
@@ -112,16 +112,20 @@ nnoremap <leader>lt :CocOutline<cr>
 nnoremap <leader>ls :CocSearch
 
 nnoremap <leader>bb :NERDTreeToggle<CR>
-nnoremap <leader>bf :NERDTreeFind<cr>
+nnoremap <leader>bf :NERDTreeFind<CR>
 
-nnoremap <leader>pp :Prettier<cr>
+nnoremap <leader>cc <Plug>NERDCommenterToggle
+vnoremap <leader>cc <Plug>NERDCommenterToggle<CR>gv
+
+nnoremap <leader>pp :Prettier<CR>
 
 nnoremap <C-t> :bel vert term<CR><CR>i
 tnoremap <C-t> <CR>exit<CR>
 
-map <F12> :PlugInstall<cr>
-map <F11> :PlugUpdate<cr>
-map <F10> :PlugClean<cr>
+inoremap <silent><expr> <c-space> coc#refresh()
+
+map <F12> :PlugInstall<CR> :PlugUpdate<CR>
+map <F10> :PlugClean<CR>
 
 " Auto-session
 let g:auto_session_enabled = 1
@@ -157,11 +161,19 @@ let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#branch#enabled = 1
 
+" NERDCommenter
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+
 " NERDTree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 
 " NERDTree Git Plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
