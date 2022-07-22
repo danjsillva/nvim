@@ -101,9 +101,6 @@ nnoremap <leader>we :vsplit<CR>
 nnoremap <leader>qq :bd!<cr>
 nnoremap <leader>qw :w\|bd<cr>
 
-" nnoremap <leader>ff :CtrlSF
-" nnoremap <leader>fr :CtrlSFToggle<cr>
-
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope resume<cr>
