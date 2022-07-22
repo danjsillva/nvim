@@ -14,7 +14,6 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'       " lua plugin
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " file explorer
     " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
-    " Plug 'junegunn/fzf.vim'          " file finder
     " Plug 'dyng/ctrlsf.vim'           " grep finder
 
     " Language
