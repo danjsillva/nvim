@@ -1,85 +1,91 @@
 call plug#begin()
-    Plug 'morhetz/gruvbox' " nvim theme
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'rmagatti/auto-session' " auto-session
-    Plug 'vim-airline/vim-airline' " buffer and status bar
-    Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
-    Plug 'preservim/nerdcommenter' " commenter
-    Plug 'preservim/nerdtree' " file tree
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
-    Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
-    Plug 'tpope/vim-fugitive' " git integration
-    Plug 'ryanoasis/vim-devicons' " icons for file types
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim' " file finder
-    Plug 'dyng/ctrlsf.vim'
-    Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
-    Plug 'airblade/vim-gitgutter' " git gutter
-    Plug 'APZelos/blamer.nvim' " git lens
     Plug 'editorconfig/editorconfig-vim' " editorconfig
+
+    Plug 'morhetz/gruvbox' " nvim theme
+    Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
+    Plug 'ryanoasis/vim-devicons' " icons for file types
+    Plug 'vim-airline/vim-airline' " buffer and status bar
+    Plug 'preservim/nerdtree' " file tree
+    Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
+    Plug 'nvim-lua/plenary.nvim' " lua plugin
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " file explorer
+    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    " Plug 'junegunn/fzf.vim' " file finder
+    " Plug 'dyng/ctrlsf.vim'
+
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
     Plug 'github/copilot.vim' " github copilot
-    Plug 'vim-test/vim-test' " test runner
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'sheerun/vim-polyglot' " language pack
-    Plug 'posva/vim-vue' " vue language pack
     Plug 'mattn/emmet-vim' " emmet support
+    Plug 'posva/vim-vue' " vue language pack
     Plug 'prettier/vim-prettier' " prettier support
     Plug 'ap/vim-css-color' " css color support
-    Plug 'jiangmiao/auto-pairs' " auto-pairing
-    Plug 'tpope/vim-surround' " change pair characters
-    Plug 'AndrewRadev/tagalong.vim' " tag support
-    Plug 'itchyny/vim-cursorword' " highlight current word
-    Plug 'terryma/vim-multiple-cursors' " multiple cursors
+
     Plug 'MattesGroeger/vim-bookmarks' " bookmarks
+    Plug 'vim-test/vim-test' " test runner
+    Plug 'preservim/nerdcommenter' " commenter
+    Plug 'itchyny/vim-cursorword' " highlight current word
+    Plug 'tpope/vim-surround' " change pair characters
+    Plug 'jiangmiao/auto-pairs' " auto-pairing
+    Plug 'AndrewRadev/tagalong.vim' " tag support
+
+    Plug 'tpope/vim-fugitive' " git integration
+    Plug 'airblade/vim-gitgutter' " git signs
+    Plug 'APZelos/blamer.nvim' " git lens
 call plug#end()
 
 syntax on
 colorscheme gruvbox
 
-set nocompatible                     " this must be first, because it changes other options as side effect
+set nocompatible                      " this must be first, because it changes other options as side effect
+set lazyredraw
+set ttyfast
+set mouse=a
+set clipboard=unnamed                 " use native clipboard
+
 set termguicolors
 set background=dark
-set ttyfast
 set number
 set relativenumber
-set mouse=a
+set signcolumn=yes:2
+set scrolloff=8
 set cursorline
-set ruler
+
+set splitright
+set splitbelow
+set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
+
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set showmatch
-set autoindent
-set clipboard=unnamed                 " use native clipboard
-set lazyredraw                        " no unneeded redraws
-set splitright
-set splitbelow
-set nobackup                          " don't save backups
-set nowritebackup                     " don't save backups
-set noswapfile                        " no swapfiles
-set noerrorbells                      " no error bells please
-set visualbell
-set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
-set scrolloff=8                       " minimum scroll offset
-set signcolumn=yes:2                  " don't split windows
-set autoread                          " auto read files
-set updatetime=100                    " update time
-set sessionoptions+=winpos,terminal   " auto-session
 
 filetype plugin on
 
 let mapleader = " "
 
 nnoremap <Esc> :noh<CR><CR>
-nnoremap <ESC> :nohlsearch<CR>
+nnoremap <Esc> :nohlsearch<CR>
 
 nnoremap <silent><tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent><s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
+vnoremap < <gv
+vnoremap > >gv
 
 nnoremap <silent><C-p> :GFiles<CR>
 
 nnoremap <leader>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
 nnoremap <leader>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
+
+nnoremap <leader>rr :%s///g<Left><Left>
+nnoremap <leader>rc :%s///gc<Left><Left><Left>
+
+vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 nnoremap <leader>wa <C-w>h
 nnoremap <leader>ws <C-w>j
@@ -91,8 +97,12 @@ nnoremap <leader>we :vsplit<CR>
 nnoremap <leader>qq :bd!<cr>
 nnoremap <leader>qw :w\|bd<cr>
 
-nnoremap <leader>ff :CtrlSF 
-nnoremap <leader>fr :CtrlSFToggle<cr>
+" nnoremap <leader>ff :CtrlSF
+" nnoremap <leader>fr :CtrlSFToggle<cr>
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope resume<cr>
 
 nnoremap <leader>gg :G<cr>
 nnoremap <leader>gh :Gclog<cr>
