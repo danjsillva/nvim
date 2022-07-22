@@ -115,6 +115,7 @@ nnoremap <leader>gP :G push<cr>
 
 nnoremap <leader>dd :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <leader>ds :call CocAction('jumpDefinition', 'vsplit')<CR>
+nnoremap <leader>dw :call CocAction('doHover')<CR>
 
 nnoremap <leader>la :CocAction<cr>
 nnoremap <leader>ld :CocDiagnostics<cr>
@@ -144,12 +145,6 @@ let g:auto_session_enabled = 1
 let g:blamer_enabled = 1
 let g:blamer_relative_time = 1
 let g:blamer_prefix = '                '
-
-" FZF
-let g:fzf_action = { 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
-
-" CtrlSF
-let g:ctrlsf_position = 'right'
 
 " CoC
 let g:coc_global_extensions = [
