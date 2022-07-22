@@ -1,55 +1,55 @@
 call plug#begin()
     " General
-    Plug 'rmagatti/auto-session' " auto-session
+    Plug 'rmagatti/auto-session'       " auto-session
     Plug 'editorconfig/editorconfig-vim' " editorconfig
 
     " Graphical
-    Plug 'morhetz/gruvbox' " nvim theme
+    Plug 'morhetz/gruvbox'             " nvim theme
     Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
-    Plug 'ryanoasis/vim-devicons' " icons for file types
-    Plug 'vim-airline/vim-airline' " buffer and status bar
-    Plug 'preservim/nerdtree' " file tree
+    Plug 'ryanoasis/vim-devicons'      " icons for file types
+    Plug 'vim-airline/vim-airline'     " buffer and status bar
+    Plug 'preservim/nerdtree'          " file tree
     Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
-    Plug 'nvim-lua/plenary.nvim' " lua plugin
+    Plug 'nvim-lua/plenary.nvim'       " lua plugin
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " file explorer
-    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " Plug 'junegunn/fzf.vim' " file finder
-    " Plug 'dyng/ctrlsf.vim'
+    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
+    " Plug 'junegunn/fzf.vim'          " file finder
+    " Plug 'dyng/ctrlsf.vim'           " grep finder
 
     " Language
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
-    Plug 'github/copilot.vim' " github copilot
+    Plug 'github/copilot.vim'          " github copilot
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
-    Plug 'sheerun/vim-polyglot' " language pack
-    Plug 'mattn/emmet-vim' " emmet support
-    Plug 'posva/vim-vue' " vue language pack
-    Plug 'prettier/vim-prettier' " prettier support
-    Plug 'ap/vim-css-color' " css color support
+    Plug 'sheerun/vim-polyglot'        " language pack
+    Plug 'mattn/emmet-vim'             " emmet support
+    Plug 'posva/vim-vue'               " vue language pack
+    Plug 'prettier/vim-prettier'       " prettier support
+    Plug 'ap/vim-css-color'            " css color support
 
     " Tools
     Plug 'MattesGroeger/vim-bookmarks' " bookmarks
-    Plug 'vim-test/vim-test' " test runner
-    Plug 'preservim/nerdcommenter' " commenter
-    Plug 'itchyny/vim-cursorword' " highlight current word
-    Plug 'tpope/vim-surround' " change pair characters
-    Plug 'jiangmiao/auto-pairs' " auto-pairing
-    Plug 'AndrewRadev/tagalong.vim' " tag support
+    Plug 'vim-test/vim-test'           " test runner
+    Plug 'preservim/nerdcommenter'     " commenter
+    Plug 'itchyny/vim-cursorword'      " highlight current word
+    Plug 'tpope/vim-surround'          " change pair characters
+    Plug 'jiangmiao/auto-pairs'        " auto-pairing
+    Plug 'AndrewRadev/tagalong.vim'    " tag support
 
     " Git support
-    Plug 'tpope/vim-fugitive' " git integration
-    Plug 'airblade/vim-gitgutter' " git signs
-    Plug 'APZelos/blamer.nvim' " git lens
+    Plug 'tpope/vim-fugitive'          " git integration
+    Plug 'airblade/vim-gitgutter'      " git signs
+    Plug 'APZelos/blamer.nvim'         " git lens
 call plug#end()
 
 syntax on
 colorscheme gruvbox
 
-set nocompatible                      " this must be first, because it changes other options as side effect
+set nocompatible                       " this must be first, because it changes other options as side effect
 set lazyredraw
 set ttyfast
 set mouse=a
-set clipboard=unnamed                 " use native clipboard
+set clipboard=unnamed                  " use native clipboard
 
 set termguicolors
 set background=dark
@@ -61,7 +61,7 @@ set cursorline
 
 set splitright
 set splitbelow
-set whichwrap=b,s,h,l,<,>,[,]         " backspace and cursor keys wrap too
+set whichwrap=b,s,h,l,<,>,[,]          " backspace and cursor keys wrap too
 
 set hlsearch
 set incsearch
