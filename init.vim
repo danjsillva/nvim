@@ -1,7 +1,9 @@
 call plug#begin()
+    " General
     Plug 'rmagatti/auto-session' " auto-session
     Plug 'editorconfig/editorconfig-vim' " editorconfig
 
+    " Graphical
     Plug 'morhetz/gruvbox' " nvim theme
     Plug 'lukas-reineke/indent-blankline.nvim' " indent guide
     Plug 'ryanoasis/vim-devicons' " icons for file types
@@ -15,6 +17,7 @@ call plug#begin()
     " Plug 'junegunn/fzf.vim' " file finder
     " Plug 'dyng/ctrlsf.vim'
 
+    " Language
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
     Plug 'github/copilot.vim' " github copilot
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
@@ -24,6 +27,7 @@ call plug#begin()
     Plug 'prettier/vim-prettier' " prettier support
     Plug 'ap/vim-css-color' " css color support
 
+    " Tools
     Plug 'MattesGroeger/vim-bookmarks' " bookmarks
     Plug 'vim-test/vim-test' " test runner
     Plug 'preservim/nerdcommenter' " commenter
@@ -32,6 +36,7 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs' " auto-pairing
     Plug 'AndrewRadev/tagalong.vim' " tag support
 
+    " Git support
     Plug 'tpope/vim-fugitive' " git integration
     Plug 'airblade/vim-gitgutter' " git signs
     Plug 'APZelos/blamer.nvim' " git lens
