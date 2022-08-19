@@ -18,7 +18,6 @@ call plug#begin()
 
     " Language
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
-    Plug 'github/copilot.vim'          " github copilot
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'sheerun/vim-polyglot'        " language pack
     Plug 'mattn/emmet-vim'             " emmet support
@@ -157,6 +156,7 @@ let g:coc_global_extensions = [
 \   'coc-css',
 \   'coc-yaml',
 \   'coc-prettier',
+\   'coc-tabnine'
 \]
 
 " Airline
