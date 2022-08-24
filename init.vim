@@ -33,6 +33,7 @@ call plug#begin()
     Plug 'tpope/vim-surround'          " change pair characters
     Plug 'jiangmiao/auto-pairs'        " auto-pairing
     Plug 'AndrewRadev/tagalong.vim'    " tag support
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multiple cursor
 
     " Git support
     Plug 'tpope/vim-fugitive'          " git integration
@@ -90,11 +91,8 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-nnoremap <leader>wa <C-w>h
-nnoremap <leader>ws <C-w>j
-nnoremap <leader>ww <C-w>k
-nnoremap <leader>wd <C-w>l
 nnoremap <leader>wq <C-w>c
+nnoremap <leader>ww <C-w>w
 nnoremap <leader>we :vsplit<CR>
 
 nnoremap <leader>qq :bd!<cr>
