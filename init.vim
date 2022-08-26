@@ -137,6 +137,7 @@ nnoremap <C-t> :bel vert term<CR><CR>i
 tnoremap <C-t> <CR>exit<CR>
 
 inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 map <F12> :PlugInstall<CR> :PlugUpdate<CR>
 map <F10> :PlugClean<CR>
