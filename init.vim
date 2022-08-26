@@ -12,9 +12,9 @@ call plug#begin()
     Plug 'Xuyuanp/nerdtree-git-plugin' " git integration
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " syntax highlighting
     Plug 'nvim-lua/plenary.nvim'       " lua plugin
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " file explorer
-    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
-    " Plug 'dyng/ctrlsf.vim'           " grep finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
+    Plug 'junegunn/fzf.vim'            " fuzzy finder
+    Plug 'dyng/ctrlsf.vim'             " grep finder
 
     " Language
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " neovim client
@@ -81,7 +81,7 @@ nnoremap <silent><s-tab> :if &modifiable && !&readonly && &modified <CR> :write<
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><C-p> :Files<CR>
 
 nnoremap <leader>yf :let @+=expand("%:p")<CR> " Copy file path to clipboard
 nnoremap <leader>yd :let @+=expand("%:p:h")<CR> " Copy directory path to clipboard
@@ -98,17 +98,24 @@ nnoremap <leader>we :vsplit<CR>
 nnoremap <leader>qq :bd!<cr>
 nnoremap <leader>qw :w\|bd<cr>
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fh <cmd>Telescope resume<cr>
+nnoremap <leader>ff :CtrlSF 
+vnoremap <leader>ff y:CtrlSF <C-R>+<cr>
+nnoremap <leader>fe vawy:CtrlSF <C-R>+<cr>
+nnoremap <leader>fr :CtrlSFToggle<cr>
+
+nnoremap <leader>fg :BLines<cr>
+
+nnoremap <leader>pp :GFiles<cr>
+nnoremap <leader>po :History<cr>
 
 nnoremap <leader>gg :G<cr>
-nnoremap <leader>gh :Gclog<cr>
 nnoremap <leader>gc :Git commit<cr>
-nnoremap <leader>gf :Gdiff<cr>
-nnoremap <leader>gd :Gvdiffsplit<cr>
+nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :G pull<cr>
 nnoremap <leader>gP :G push origin HEAD<cr>
+
+nnoremap <leader>gh :Commits<cr>
+nnoremap <leader>gf :BCommits<cr>
 
 nnoremap <leader>dd :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <leader>ds :call CocAction('jumpDefinition', 'vsplit')<CR>
@@ -118,14 +125,13 @@ nnoremap <leader>la :CocAction<cr>
 nnoremap <leader>ld :CocDiagnostics<cr>
 nnoremap <leader>lt :CocOutline<cr>
 nnoremap <leader>ls :CocSearch
+nnoremap <leader>lp :Prettier<CR>
 
 nnoremap <leader>bb :NERDTreeToggle<CR>
 nnoremap <leader>bf :NERDTreeFind<CR>
 
 nnoremap <leader>cc <Plug>NERDCommenterToggle
 vnoremap <leader>cc <Plug>NERDCommenterToggle<CR>gv
-
-nnoremap <leader>pp :Prettier<CR>
 
 nnoremap <C-t> :bel vert term<CR><CR>i
 tnoremap <C-t> <CR>exit<CR>
@@ -142,6 +148,14 @@ let g:auto_session_enabled = 1
 let g:blamer_enabled = 1
 let g:blamer_relative_time = 1
 let g:blamer_prefix = '                '
+
+" FZF
+let g:fzf_layout = { 'down': '~50%' }
+
+" CtrlSF
+let g:ctrlsf_backend = 'ack'
+let g:ctrlsf_auto_focus = { "at":"start" }
+let g:ctrlsf_position = 'right'
 
 " CoC
 let g:coc_global_extensions = [
@@ -173,6 +187,7 @@ let g:NERDDefaultAlign = 'left'
 
 " NERDTree
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeMinimalUI = 1 " hide helper
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
