@@ -1,11 +1,15 @@
 require("packer").startup(function()
   use { "wbthomason/packer.nvim" }
+  use { "nvim-lua/plenary.nvim" }
 
   use { "morhetz/gruvbox" }
   use { "kyazdani42/nvim-web-devicons" }
   use { 'kyazdani42/nvim-tree.lua' }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
+  use { "lukas-reineke/indent-blankline.nvim" }
+  use { "j-hui/fidget.nvim" }
+  use { 'norcalli/nvim-colorizer.lua' }
 
   use { "neovim/nvim-lspconfig" }
   use { "onsails/lspkind.nvim" }
@@ -27,13 +31,11 @@ require("packer").startup(function()
   use { "editorconfig/editorconfig-vim" }
   use { "rmagatti/auto-session" }
 
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = { "nvim-lua/plenary.nvim" }
-  }
+  use { "nvim-telescope/telescope.nvim" }
   use { "nvim-telescope/telescope-file-browser.nvim" }
 
   use { 'lewis6991/gitsigns.nvim' }
+  use { 'sindrets/diffview.nvim' }
   use { 'dinhhuy258/git.nvim' }
 end)
 
@@ -45,7 +47,6 @@ require("nvim-tree").setup({
   },
   diagnostics = {
     enable = true,
-    show_on_dirs = true,
     -- icons = {
     --   hint = "",
     --   info = "",
@@ -79,6 +80,15 @@ require("bufferline").setup({
     show_close_icon = false,
   },
 })
+
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
+require("fidget").setup{}
+
+require 'colorizer'.setup()
 
 require("lspconfig").tsserver.setup{}
 
@@ -153,5 +163,7 @@ require('gitsigns').setup({
   current_line_blame_formatter = '<author>, <author_time:%d/%m/%Y> - <summary>',
 })
 
-require('git').setup()
+require('diffview').setup({})
+
+require('git').setup({})
 

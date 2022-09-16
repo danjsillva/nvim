@@ -109,10 +109,20 @@ _G.packer_plugins = {
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
+  },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
   },
   ["git.nvim"] = {
     loaded = true,
@@ -129,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
@@ -143,6 +158,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-comment"] = {
     loaded = true,
@@ -188,6 +208,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-bookmarks"] = {
     loaded = true,
