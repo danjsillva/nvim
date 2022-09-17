@@ -21,6 +21,7 @@ require("packer").startup(function()
   use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/cmp-path" }
   use { "hrsh7th/cmp-cmdline" }
+  use { 'tzachar/cmp-tabnine', run='./install.sh' }
 
   use { "hrsh7th/vim-vsnip" }
   use { "hrsh7th/cmp-vsnip" }
@@ -137,17 +138,26 @@ require("cmp").setup({
     end,
   },
   sources = require("cmp").config.sources({
-    { name = "nvim_lsp" },
+    { name = 'cmp_tabnine' },
     { name = "buffer" },
+    { name = "nvim_lsp" },
     { name = "path" },
     { name = "cmdline" },
     { name = "vsnip" },
   }),
   formatting = {
-    format = require("lspkind").cmp_format({
-      mode = "symbol_text",
-      maxwidth = 50,
-    })
+    format = function(entry, vim_item)
+      vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+      vim_item.menu = ({
+        cmp_tabnine = "[T9]",
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        path = "[Path]",
+        cmdline = "[CMD]",
+        vsnip = "[VSnip]",
+      })[entry.source.name]
+      return vim_item
+    end,
   }
 })
 
