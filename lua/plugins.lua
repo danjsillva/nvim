@@ -10,6 +10,8 @@ require("packer").startup(function()
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "j-hui/fidget.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
+  use { "windwp/nvim-autopairs" }
+  use { "windwp/nvim-ts-autotag" }
 
   use { "neovim/nvim-lspconfig" }
   use { "onsails/lspkind.nvim" }
@@ -82,13 +84,26 @@ require("bufferline").setup({
 })
 
 require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
+  show_current_context = true,
 }
 
 require("fidget").setup{}
 
-require 'colorizer'.setup()
+require('colorizer').setup()
+
+require("nvim-autopairs").setup()
+
+require("nvim-ts-autotag").setup({
+  filetypes = {
+    "html",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "xml",
+  },
+})
 
 require("lspconfig").tsserver.setup{}
 
@@ -136,7 +151,25 @@ require("cmp").setup({
   }
 })
 
-require("nvim-treesitter.configs").setup{}
+require("nvim-treesitter.configs").setup{
+  ensure_installed = {
+    "bash",
+    "css",
+    "dockerfile",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "scss",
+    "tsx",
+    "typescript",
+    "vim",
+    "vue",
+    "yaml",
+  },
+  highlight = { enable = true },
+  indent = { enable = true },
+}
 
 require("nvim_comment").setup()
 
