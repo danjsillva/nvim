@@ -8,10 +8,11 @@ require("packer").startup(function()
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "j-hui/fidget.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
+
   use { "windwp/nvim-autopairs" }
   use { "windwp/nvim-ts-autotag" }
+  use { 'windwp/nvim-spectre' }
 
   use { "neovim/nvim-lspconfig" }
   use { "onsails/lspkind.nvim" }
@@ -35,11 +36,9 @@ require("packer").startup(function()
   use { "rmagatti/auto-session" }
 
   use { "nvim-telescope/telescope.nvim" }
-  use { "nvim-telescope/telescope-file-browser.nvim" }
 
   use { 'lewis6991/gitsigns.nvim' }
   use { 'sindrets/diffview.nvim' }
-  use { 'dinhhuy258/git.nvim' }
 end)
 
 require("nvim-tree").setup({
@@ -82,13 +81,14 @@ require("bufferline").setup({
     show_buffer_close_icons = true,
     show_close_icon = false,
   },
+  highlights = {
+    buffer_selected = { italic = false },
+  },
 })
 
 require("indent_blankline").setup {
   show_current_context = true,
 }
-
-require("fidget").setup{}
 
 require('colorizer').setup()
 
@@ -105,6 +105,8 @@ require("nvim-ts-autotag").setup({
     "xml",
   },
 })
+
+require('spectre').setup()
 
 require("lspconfig").tsserver.setup{}
 
@@ -193,8 +195,6 @@ require("telescope").setup({
   }
 })
 
-require("telescope").load_extension("file_browser")
-
 require('gitsigns').setup({
   current_line_blame = true,
   current_line_blame_opts = {
@@ -207,6 +207,4 @@ require('gitsigns').setup({
 })
 
 require('diffview').setup({})
-
-require('git').setup({})
 

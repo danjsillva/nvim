@@ -81,7 +81,7 @@ vim.keymap.set("n", "<Leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap
 vim.keymap.set("n", "<Leader>dw", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>de", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>da", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>dd", "<cmd>lua vim.diagnostic.open_float({ width = 80 })<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>ds", ":Telescope diagnostics<CR>", { noremap = true })
 
@@ -112,4 +112,7 @@ vim.keymap.set('n', '<Leader>gh', ":Gitsigns stage_hunk<CR>", { noremap = true }
 vim.keymap.set('n', '<Leader>gH', ":Gitsigns undo_stage_hunk<CR>", { noremap = true })
 vim.keymap.set('n', '<Leader>gb', ":Gitsigns stage_buffer<CR>", { noremap = true })
 vim.keymap.set('n', '<Leader>gd', ":Gitsigns diffthis<CR>", { noremap = true })
+
+vim.keymap.set('n', '<Leader>ss', "<cmd>lua require('spectre').open_visual()<CR>", { noremap = true })
+vim.keymap.set('v', '<Leader>ss', "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", { noremap = true })
 
