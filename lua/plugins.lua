@@ -4,15 +4,15 @@ require("packer").startup(function()
 
   use { "morhetz/gruvbox" }
   use { "kyazdani42/nvim-web-devicons" }
-  use { 'kyazdani42/nvim-tree.lua' }
+  use { "kyazdani42/nvim-tree.lua" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { 'norcalli/nvim-colorizer.lua' }
+  use { "norcalli/nvim-colorizer.lua" }
 
   use { "windwp/nvim-autopairs" }
   use { "windwp/nvim-ts-autotag" }
-  use { 'windwp/nvim-spectre' }
+  use { "windwp/nvim-spectre" }
 
   use { "neovim/nvim-lspconfig" }
   use { "onsails/lspkind.nvim" }
@@ -22,7 +22,7 @@ require("packer").startup(function()
   use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/cmp-path" }
   use { "hrsh7th/cmp-cmdline" }
-  use { 'tzachar/cmp-tabnine', run='./install.sh' }
+  use { "tzachar/cmp-tabnine", run="./install.sh" }
 
   use { "hrsh7th/vim-vsnip" }
   use { "hrsh7th/cmp-vsnip" }
@@ -37,8 +37,8 @@ require("packer").startup(function()
 
   use { "nvim-telescope/telescope.nvim" }
 
-  use { 'lewis6991/gitsigns.nvim' }
-  use { 'sindrets/diffview.nvim' }
+  use { "lewis6991/gitsigns.nvim" }
+  use { "sindrets/diffview.nvim" }
 end)
 
 require("nvim-tree").setup({
@@ -60,16 +60,16 @@ require("nvim-tree").setup({
 
 require("lualine").setup({
   options = {
-    section_separators = { left = '', right = ''},
-    component_separators = { left = 'ﱤ', right = 'ﱣ'},
+    section_separators = { left = "", right = ""},
+    component_separators = { left = "ﱤ", right = "ﱣ"},
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
-    lualine_c = {'filename'},
-    lualine_x = {'diagnostics'},
-    lualine_y = {'filetype'},
-    lualine_z = {'progress', 'location'}
+    lualine_a = {"mode"},
+    lualine_b = {"branch", "diff"},
+    lualine_c = {"filename"},
+    lualine_x = {"diagnostics"},
+    lualine_y = {"filetype"},
+    lualine_z = {"progress", "location"}
   },
 })
 
@@ -90,7 +90,7 @@ require("indent_blankline").setup {
   show_current_context = true,
 }
 
-require('colorizer').setup()
+require("colorizer").setup()
 
 require("nvim-autopairs").setup()
 
@@ -106,7 +106,7 @@ require("nvim-ts-autotag").setup({
   },
 })
 
-require('spectre').setup()
+require("spectre").setup()
 
 require("lspconfig").tsserver.setup{}
 
@@ -140,7 +140,7 @@ require("cmp").setup({
     end,
   },
   sources = require("cmp").config.sources({
-    { name = 'cmp_tabnine' },
+    { name = "cmp_tabnine" },
     { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "path" },
@@ -195,16 +195,16 @@ require("telescope").setup({
   }
 })
 
-require('gitsigns').setup({
+require("gitsigns").setup({
   current_line_blame = true,
   current_line_blame_opts = {
     virt_text = true,
-    virt_text_pos = 'eol',
+    virt_text_pos = "eol",
     delay = 1000,
     ignore_whitespace = false,
   },
-  current_line_blame_formatter = '<author>, <author_time:%d/%m/%Y> - <summary>',
+  current_line_blame_formatter = "<author>, <author_time:%d/%m/%Y> - <summary>",
 })
 
-require('diffview').setup({})
+require("diffview").setup({})
 
