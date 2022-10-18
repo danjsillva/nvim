@@ -57,19 +57,19 @@ vim.diagnostic.config({
 
 -- Mapping
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true })
-
 vim.keymap.set("n", "<F12>", ":PackerSync<CR>", { noremap = true })
+
+vim.keymap.set("n", "<C-s>", ":Prettier<CR>:w<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true })
-
-vim.keymap.set("n", "c", "'_c", { noremap = true })
-vim.keymap.set("n", "C", "'_C", { noremap = true })
 
 vim.keymap.set("n", "<Leader>qq", ":bd<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>ww", "<C-w>w", { noremap = true })
 vim.keymap.set("n", "<Leader>wq", "<C-w>q", { noremap = true })
 vim.keymap.set("n", "<Leader>we", ":vsplit<CR>", { noremap = true })
+
+vim.keymap.set("n", "<Leader>=", ":Prettier<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>bb", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>bv", ":NvimTreeFindFile<CR>", { noremap = true })
