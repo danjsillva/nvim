@@ -3,13 +3,14 @@ require("packer").startup(function()
   use { "nvim-lua/plenary.nvim" }
 
   use { "morhetz/gruvbox" }
-  use { "kyazdani42/nvim-web-devicons" }
-  use { "kyazdani42/nvim-tree.lua" }
+  use { "nvim-tree/nvim-web-devicons" }
+  use { "nvim-tree/nvim-tree.lua" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "norcalli/nvim-colorizer.lua" }
 
+  use { "tpope/vim-surround" }
   use { "windwp/nvim-autopairs" }
   use { "windwp/nvim-ts-autotag" }
   use { "windwp/nvim-spectre" }
