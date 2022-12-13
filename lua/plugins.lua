@@ -22,11 +22,6 @@ require("packer").startup(function()
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "hrsh7th/cmp-buffer" }
   use { "hrsh7th/cmp-path" }
-  use { "hrsh7th/cmp-cmdline" }
-  use { "tzachar/cmp-tabnine", run="./install.sh" }
-
-  use { "hrsh7th/vim-vsnip" }
-  use { "hrsh7th/cmp-vsnip" }
 
   use { "nvim-treesitter/nvim-treesitter" }
   use { "prettier/vim-prettier" }
@@ -50,12 +45,12 @@ require("nvim-tree").setup({
   },
   diagnostics = {
     enable = true,
-    -- icons = {
-    --   hint = "",
-    --   info = "",
-    --   warning = "",
-    --   error = "",
-    -- },
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
   },
 })
 
@@ -112,11 +107,6 @@ require("spectre").setup()
 require("lspconfig").tsserver.setup{}
 
 require("cmp").setup({
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
   mapping = {
     ["<C-Space>"] = require("cmp").mapping.complete(),
     ["<C-e>"] = require("cmp").mapping.close(),
@@ -141,23 +131,17 @@ require("cmp").setup({
     end,
   },
   sources = require("cmp").config.sources({
-    { name = "cmp_tabnine" },
-    { name = "buffer" },
     { name = "nvim_lsp" },
+    { name = "buffer" },
     { name = "path" },
-    { name = "cmdline" },
-    { name = "vsnip" },
   }),
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
       vim_item.menu = ({
-        cmp_tabnine = "[T9]",
-        buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
+        buffer = "[Buffer]",
         path = "[Path]",
-        cmdline = "[CMD]",
-        vsnip = "[VSnip]",
       })[entry.source.name]
       return vim_item
     end,

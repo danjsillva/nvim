@@ -4,6 +4,10 @@ vim.g.mapleader = " "
 vim.o.termguicolors = true
 vim.o.background = "dark"
 vim.cmd("colorscheme gruvbox")
+vim.cmd("highlight! link SignColumn LineNr")
+vim.cmd("highlight! link GitSignsAdd LineNr")
+vim.cmd("highlight! link GitSignsChange LineNr")
+vim.cmd("highlight! link GitSignsDelete LineNr")
 
 vim.o.compatible = false
 vim.o.number = true
