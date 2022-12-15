@@ -42,6 +42,14 @@ require("nvim-tree").setup({
     indent_markers = {
       enable = true,
     },
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = false,
+        git = true
+      }
+    }
   },
   diagnostics = {
     enable = true,
@@ -71,14 +79,40 @@ require("lualine").setup({
 
 require("bufferline").setup({
   options = {
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text="File Explorer",
+        separator= true,
+        text_align = "left"
+      }
+    },
     mode = "buffers",
     separator_style = "thin",
     diagnostics = "nvim_lsp",
     show_buffer_close_icons = true,
     show_close_icon = false,
+    indicator = {
+      style = 'none'
+    },
+    tab_size = 24,
+    diagnostics = "nvim_lsp",
+    custom_areas = {
+      right = function()
+        local result = {}
+        
+        return result
+      end,
+    }
+
   },
   highlights = {
     buffer_selected = { italic = false },
+    offset_separator = {
+      fg = red,
+      bg = green,
+    },
+
   },
 })
 

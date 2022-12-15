@@ -68,7 +68,10 @@ vim.keymap.set("n", "<C-s>", ":Prettier<CR>:w<CR>", { noremap = true })
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true })
 
-vim.keymap.set("n", "x", '"_x"', { noremap = true })
+vim.keymap.set("n", "<C-=>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true })
+vim.keymap.set("n", "<C-->", "<Cmd>BufferLineMovePrev<CR>", { noremap = true })
+
+vim.keymap.set("n", "x", '"_x', { noremap = true })
 
 vim.keymap.set("n", "<Leader>qq", ":bd<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>ww", "<C-w>w", { noremap = true })
