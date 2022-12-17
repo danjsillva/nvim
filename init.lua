@@ -64,6 +64,8 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true })
 vim.keymap.set("n", "<F12>", ":PackerSync<CR>", { noremap = true })
 
 vim.keymap.set("n", "<C-s>", ":Prettier<CR>:w<CR>", { noremap = true })
+vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true })
+vim.keymap.set("n", "<C-f>", "*Nvaw", { noremap = true })
 
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true })
@@ -71,12 +73,21 @@ vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true 
 vim.keymap.set("n", "<C-=>", "<Cmd>BufferLineMoveNext<CR>", { noremap = true })
 vim.keymap.set("n", "<C-->", "<Cmd>BufferLineMovePrev<CR>", { noremap = true })
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
+
 vim.keymap.set("n", "x", '"_x', { noremap = true })
 
 vim.keymap.set("n", "<Leader>qq", ":bd<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>ww", "<C-w>w", { noremap = true })
-vim.keymap.set("n", "<Leader>wq", "<C-w>q", { noremap = true })
-vim.keymap.set("n", "<Leader>we", ":vsplit<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>ww", "<C-w>l", { noremap = true })
+vim.keymap.set("n", "<Leader>wq", "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<Leader>we", ":vsplit<CR><C-w>w:b#<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>=", ":Prettier<CR>", { noremap = true })
 
