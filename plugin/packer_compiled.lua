@@ -199,6 +199,11 @@ _G.packer_plugins = {
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-bookmarks"] = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/vim-bookmarks",

@@ -35,6 +35,7 @@ require("packer").startup(function()
 
   use { "lewis6991/gitsigns.nvim" }
   use { "sindrets/diffview.nvim" }
+  use { "mbbill/undotree" }
 end)
 
 require("nvim-tree").setup({

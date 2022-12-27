@@ -61,7 +61,7 @@ vim.diagnostic.config({
 
 -- Mapping
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true })
-vim.keymap.set("n", "<F12>", ":PackerSync<CR>", { noremap = true })
+vim.keymap.set("n", "<F12>", ":so %<CR>:PackerSync<CR>", { noremap = true })
 
 vim.keymap.set("n", "<C-s>", ":Prettier<CR>:w<CR>", { noremap = true })
 vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true })
@@ -96,6 +96,8 @@ vim.keymap.set("n", "<Leader>bv", ":NvimTreeFindFile<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>bc", ":NvimTreeCollapse<CR>gg", { noremap = true })
 vim.keymap.set("n", "<Leader>bn", "<cmd>lua nvim-tree.api.fs.copy.filename<CR>", { noremap = true })
 
+vim.keymap.set("n", "<Leader>uu", ":UndotreeToggle<CR>:UndotreeFocus<CR>", { noremap = true })
+
 vim.keymap.set("n", "<Leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>dw", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
@@ -119,11 +121,10 @@ vim.keymap.set("n", "<Leader>fg", ":Telescope live_grep<CR>", { noremap = true }
 vim.keymap.set("v", "<Leader>fg", "y :Telescope live_grep default_text=<C-R>+<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>fr", ":Telescope resume<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>fh", ":Telescope search_history<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>fb", ":Telescope file_browser<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>gg", ":DiffviewOpen<CR>", { noremap = true })
-vim.keymap.set("n", "<Leader>gq", ":DiffviewClose<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>gf", ":DiffviewFileHistory<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>gq", ":DiffviewClose<CR>", { noremap = true })
 
 vim.keymap.set("n", "<Leader>gp", ":!git pull<CR>", { noremap = true })
 vim.keymap.set("n", "<Leader>gP", ":!git push origin HEAD<CR>", { noremap = true })
