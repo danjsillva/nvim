@@ -9,6 +9,7 @@ require("packer").startup(function()
   use { "akinsho/bufferline.nvim", tag = "v2.*" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "norcalli/nvim-colorizer.lua" }
+  use { "j-hui/fidget.nvim" }
 
   use { "tpope/vim-surround" }
   use { "windwp/nvim-autopairs" }
@@ -122,6 +123,8 @@ require("indent_blankline").setup {
 }
 
 require("colorizer").setup()
+
+require("fidget").setup{}
 
 require("nvim-autopairs").setup()
 

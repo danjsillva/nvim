@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/ds/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/ds/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",

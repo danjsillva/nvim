@@ -65,7 +65,7 @@ vim.keymap.set("n", "<F12>", ":so %<CR>:PackerSync<CR>", { noremap = true })
 
 vim.keymap.set("n", "<C-s>", ":Prettier<CR>:w<CR>", { noremap = true })
 vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true })
-vim.keymap.set("n", "<C-f>", "*Nvaw", { noremap = true })
+vim.keymap.set("n", "<C-f>", "*N", { noremap = true })
 
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true })
